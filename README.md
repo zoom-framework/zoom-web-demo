@@ -165,6 +165,162 @@ __重启下idea__，就可以自动编译了
 
 ## 使用eclipse创建项目
 
+1、新建项目
+
+![](images/eclipse/1.png)
+
+2、如图选择 Create a simple project
+
+![](images/eclipse/2.png)
+
+3、填写程序信息
+
+![](images/eclipse/3.png)
+
+注意Package选择war
+
+4、新建文件夹 WEB-INF,并创建web.xml，内容如下
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app>
+    <display-name>DEMO</display-name>
+    <filter>
+        <filter-name>demo</filter-name>
+        <filter-class>org.zoomdev.zoom.web.ZoomFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>demo</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+</web-app>
+
+```
+![](images/eclipse/4.png)
+
+5、pom依赖
+
+```
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.example</groupId>
+	<artifactId>demo</artifactId>
+	<version>1.0.0</version>
+	<packaging>war</packaging>
+
+
+
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<name>Team Nexus Repository</name>
+			<url>http://nexus.zoom-dev.org/repository/maven-public/</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>nexus</id>
+			<name>Team Nexus Repository</name>
+			<url>http://nexus.zoom-dev.org/repository/maven-public/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.zoomdev.zoom</groupId>
+			<artifactId>zoom-parent</artifactId>
+			<type>pom</type>
+			<version>0.2.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zoomdev.plugins</groupId>
+			<artifactId>zoom-server</artifactId>
+			<version>0.2.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+</project>
+```
+
+6、编写程序
+
+![](images/eclipse/5.png)
+
+```
+package com.example.demo;
+
+import org.zoomdev.zoom.server.ZoomWebApplication;
+
+public class App {
+
+	public static void main(String[] args) throws Exception {
+		ZoomWebApplication.start(8091);
+	}
+}
+
+```
+
+7、运行
+
+
+![](images/eclipse/6.png)
+
+选择Java Application
+
+![](images/eclipse/7.png)
+
+
+
+# Hello world
+
+1、新建DemoController,注意包名必须为controllers,`Zoom` 约定Controller必须放在controllers目录
+
+![](images/helloworld/1.png)
+
+```java
+package com.example.demo.controllers;
+
+import org.zoomdev.zoom.web.annotations.Controller;
+import org.zoomdev.zoom.web.annotations.JsonResponse;
+import org.zoomdev.zoom.web.annotations.Mapping;
+
+@Controller(key="/")
+public class DemoController {
+
+	@Mapping("")
+	@JsonResponse
+	public String index() {
+		
+		return "Hello world!";
+	}
+	
+}
+
+
+```
+
+在这段程序里面，`@Controller`标注表示这个类是一个Controller。
+
+key属性表示的是Controller的Base Url，在默认情况下Controller中的每一个public的非静态方法都将被解析为一个url。计算方法为 key / 方法名称。
+
+`@Mapping`这个标注将改变默认的计算方法，所以增加这个标注之后，url为 key / Mapping.value()。
+
+`@JsonResponse`这个标注表示，本方法返回的数据将被解析成为json字符串。
+
+
+打开浏览器,输入网址: http://localhost:8091/
+
+![](images/helloworld/12.png)
+
 
 
 # 打包war
