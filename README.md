@@ -2,6 +2,8 @@
 
 # 开始
 
+
+
 ## 环境要求
 
 + maven 3.x以上
@@ -34,6 +36,8 @@
 
 ![](images/idea/15.png)
 
+
+
 ```
 <dependency>
     <groupId>org.zoomdev.zoom</groupId>
@@ -46,6 +50,26 @@
     <artifactId>zoom-server</artifactId>
     <version>0.2.0</version>
 </dependency>
+```
+
+增加版本库的地址
+
+```
+
+<repositories>
+    <repository>
+        <id>nexus</id>
+        <name>Team Nexus Repository</name>
+        <url>http://nexus.zoom-dev.org/repository/maven-public/</url>
+    </repository>
+</repositories>
+<pluginRepositories>
+    <pluginRepository>
+        <id>nexus</id>
+        <name>Team Nexus Repository</name>
+        <url>http://nexus.zoom-dev.org/repository/maven-public/</url>
+    </pluginRepository>
+</pluginRepositories>
 ```
 
 7、创建完毕之后在src/main创建一个java的文件夹
