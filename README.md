@@ -25,12 +25,13 @@
 
 6、编辑pom.xml新增依赖
 
-![](images/idea/12.png)
+![](images/idea/15.png)
 
 ```
 <dependency>
     <groupId>org.zoomdev.zoom</groupId>
     <artifactId>zoom-parent</artifactId>
+    <type>pom</type>
     <version>0.2.0</version>
 </dependency>
 <dependency>
