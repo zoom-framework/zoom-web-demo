@@ -179,7 +179,7 @@ __重启下idea__，就可以自动编译了
 
 注意Package选择war
 
-4、新建文件夹 WEB-INF,并创建web.xml，内容如下
+4、新建文件夹 WEB-INF,并创建web.xml，内容如下
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -310,16 +310,16 @@ public class DemoController {
 
 在这段程序里面，`@Controller`标注表示这个类是一个Controller。
 
-key属性表示的是Controller的Base Url，在默认情况下Controller中的每一个public的非静态方法都将被解析为一个url。计算方法为 key / 方法名称。
+key属性表示的是Controller的Base Url，在默认情况下Controller中的每一个public的非静态方法都将被解析为一个url。计算方法为 key / 方法名称。
 
 `@Mapping`这个标注将改变默认的计算方法，所以增加这个标注之后，url为 key / Mapping.value()。
 
-`@JsonResponse`这个标注表示，本方法返回的数据将被解析成为json字符串。
+`@JsonResponse`这个标注表示，本方法返回的数据将被解析成为json字符串。
 
 
 打开浏览器,输入网址: http://localhost:8091/
 
-![](images/helloworld/12.png)
+![](images/helloworld/2.png)
 
 
 
