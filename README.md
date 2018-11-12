@@ -65,7 +65,7 @@ public class App {
 ```
 
 
-9、增加web.xml的Filter配置
+9、增加web.xml的Filter配置
 
 ![](images/idea/7.png)
 
@@ -91,13 +91,13 @@ public class App {
 ![](images/idea/9.png)
 
 
-选择刚才的App
+选择刚才的App
 
 ![](images/idea/10.png)
 
 11、将项目修改为Eclipse编译方式
 
-如果不修改的话也行，但是编写Controller的参数会稍显麻烦。
+如果不修改的话也行，但是编写Controller的参数会稍显麻烦。
 
 ![](images/idea/11.png)
 
