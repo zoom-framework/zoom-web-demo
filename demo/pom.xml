@@ -47,12 +47,12 @@
             <groupId>org.zoomdev.zoom</groupId>
             <artifactId>zoom-parent</artifactId>
             <type>pom</type>
-            <version>0.2.0</version>
+            <version>0.2.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.zoomdev.plugins</groupId>
             <artifactId>zoom-server</artifactId>
-            <version>0.2.0</version>
+            <version>0.2.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

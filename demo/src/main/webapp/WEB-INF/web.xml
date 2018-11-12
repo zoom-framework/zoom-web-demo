@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <web-app>
-  <display-name>DEMO</display-name>
-  <filter>
-    <filter-name>demo</filter-name>
-    <filter-class>org.zoomdev.zoom.web.ZoomFilter</filter-class>
-  </filter>
+    <display-name>DEMO</display-name>
+    <filter>
+        <filter-name>demo</filter-name>
+        <filter-class>org.zoomdev.zoom.web.ZoomFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>demo</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>
