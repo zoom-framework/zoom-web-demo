@@ -2,6 +2,12 @@
 
 # 开始
 
+## 环境要求
+
++ maven 3.x以上
++ jdk 1.6 或以上
++ 打开命令行能直接运行mvn
+
 ## 使用idea创建web项目
 
 1、新建一个idea项目
@@ -73,12 +79,17 @@ public class App {
 <?xml version="1.0" encoding="UTF-8"?>
 
 <web-app>
-  <display-name>DEMO</display-name>
-  <filter>
-    <filter-name>demo</filter-name>
-    <filter-class>org.zoomdev.zoom.web.ZoomFilter</filter-class>
-  </filter>
+    <display-name>DEMO</display-name>
+    <filter>
+        <filter-name>demo</filter-name>
+        <filter-class>org.zoomdev.zoom.web.ZoomFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>demo</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>
+
 
 
 ```
@@ -107,4 +118,34 @@ public class App {
 
 ![](images/idea/13.png)
 
+13、修改项目配置为自动刷新
 
+![](images/idea/16.png)
+
+如图勾选
+
+![](images/idea/17.png)
+
+看下Registry的Keymap，并使用这个快捷键调出Registry对话框，没有快捷键的话就新建个快捷键。
+
+![](images/idea/18.png)
+
+如图勾选
+
+
+__重启下idea__，就可以自动编译了
+
+![](images/preview.gif)
+
+
+
+## 使用eclipse创建项目
+
+
+
+# 打包war
+
+进入项目根目录
+```
+mvn clean install
+```
